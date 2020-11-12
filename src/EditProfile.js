@@ -78,8 +78,8 @@ const EditProfile = (props) => {
               <BfFormControl
                 type="email"
                 placeholder={EpostPlaceholder}
-                name="email"
-                value={formState.email}
+                name="username"
+                value={formState.username}
                 onChange={handleChange}
               />
               <BfFormLabelSm className="text-muted">
@@ -93,7 +93,13 @@ const EditProfile = (props) => {
               <BfFormLabel>
                 <FormattedMessage id="NavnLabel" />
               </BfFormLabel>
-              <BfFormControl type="email" placeholder={NavnPlaceholder} />
+              <BfFormControl
+                type="input"
+                placeholder={NavnPlaceholder}
+                name="fullName"
+                value={formState.fullName}
+                onChange={handleChange}
+              />
               <BfFormLabelSm className="text-muted">
                 <FormattedMessage id="NavnSmall" />
               </BfFormLabelSm>
@@ -105,7 +111,13 @@ const EditProfile = (props) => {
               <BfFormLabel>
                 <FormattedMessage id="PassordLabel" />
               </BfFormLabel>
-              <BfFormControl type="password" placeholder={PassordPlaceholder} />
+              <BfFormControl
+                type="password"
+                placeholder={PassordPlaceholder}
+                name="oldPassword"
+                value={formState.oldPassword}
+                onChange={handleChange}
+              />
               <BfFormLabelSm className="text-muted">
                 <FormattedMessage id="PassordSmall" />
               </BfFormLabelSm>
@@ -150,8 +162,13 @@ const EditProfile = (props) => {
                 <FormattedMessage id="RolleLabel" />
               </BfFormLabel>
 
-              <BfSelect>
-                <option>Administrator</option>
+              <BfSelect
+                name="rolle"
+                value={formState.rolle}
+                onChange={handleChange}
+              >
+                <option value="">Velg</option>
+                <option value="UserAdmin">Administrator</option>
                 <option>Foreningsadministrator</option>
                 <option>Regnskapesbyrå</option>
                 <option>Kreditor</option>
@@ -169,7 +186,13 @@ const EditProfile = (props) => {
                 <FormattedMessage id="ForeningLabel" />
               </BfFormLabel>
 
-              <BfSelect as="select">
+              <BfSelect
+                as="select"
+                name="forening"
+                value={formState.forening}
+                onChange={handleChange}
+              >
+                <option value="">Velg forening</option>
                 <option>Vest</option>
                 <option>Sør</option>
                 <option>Midt</option>
